@@ -17,10 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const Investor = '/investor/dashboard';
-    public const Startup = '/startup/dashboard';
-    public const HOME = '/admin/dashboard';
-    public const LOGIN = '/auth/login';
+    public const HOME = '/login';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -40,17 +37,17 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware('web','auth','CekRole:startup')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/startup.php'));
+            // Route::middleware('web','auth','CekRole:startup')
+            //     ->namespace($this->namespace)
+            //     ->group(base_path('routes/startup.php'));
 
-            Route::middleware('web','auth','CekRole:admin')
-                ->namespace($this->namespace.'\admin')
-                ->group(base_path('routes/admin.php'));
+            // Route::middleware('web','auth','CekRole:admin')
+            //     ->namespace($this->namespace.'\admin')
+            //     ->group(base_path('routes/admin.php'));
 
-            Route::middleware('web','auth','CekRole:investor')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/investor.php'));
+            // Route::middleware('web','auth','CekRole:investor')
+            //     ->namespace($this->namespace)
+            //     ->group(base_path('routes/investor.php'));
 
             Route::middleware('web')
                 ->namespace($this->namespace)
